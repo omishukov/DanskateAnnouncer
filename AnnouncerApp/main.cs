@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
+using System.Threading;
 
 namespace DanskateAnnouncer
 {
@@ -9,13 +9,17 @@ namespace DanskateAnnouncer
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            // Instead of running a form, we run an ApplicationContext.
-            Application.Run(new AnnouncerContext());
+            Thread t = new Thread(new ThreadStart(AnnouncerUi.ThreadProc));
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
+            t.Join();
+        }
+
+        public static void ThreadProc()
+        {
+
         }
     }
 }

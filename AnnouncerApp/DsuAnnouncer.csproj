@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ui\AnnouncerUi.cs" />
     <Compile Include="ui\Configuration.cs">
       <SubType>Form</SubType>
     </Compile>
