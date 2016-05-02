@@ -16,10 +16,5 @@ namespace DanskateAnnouncer
             t.Start();
             t.Join();
         }
-
-        public static void ThreadProc()
-        {
-
-        }
     }
 }

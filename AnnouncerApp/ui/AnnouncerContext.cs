@@ -17,15 +17,25 @@ namespace DanskateAnnouncer
 
             notifyIcon.Icon = DanskateAnnouncer.Properties.Resources.AppIcon;
             notifyIcon.DoubleClick += new EventHandler(ShowMessage);
-            notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { configMenuItem, exitMenuItem });
+            notifyIcon.ContextMenu = new ContextMenu();
+            notifyIcon.ContextMenu.MenuItems.Add(configMenuItem);
+            notifyIcon.ContextMenu.MenuItems.Add("-");
+            notifyIcon.ContextMenu.MenuItems.Add(exitMenuItem);
+            notifyIcon.Text = "Announcer";
             notifyIcon.Visible = true;
         }
 
         void ShowMessage(object sender, EventArgs e)
         {
+            notifyIcon.BalloonTipText = "Friløbskonkurrencen 2016";
+            notifyIcon.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIcon.BalloonTipTitle = "Event Start";
+            notifyIcon.ShowBalloonTip(500);
+
             // Only show the message if the settings say we can.
             if (DanskateAnnouncer.Properties.Settings.Default.ShowMessage)
                 MessageBox.Show("Hello World");
+
         }
 
         void ShowConfig(object sender, EventArgs e)
