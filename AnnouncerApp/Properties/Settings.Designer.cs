@@ -34,5 +34,29 @@ namespace DanskateAnnouncer.Properties {
                 this["ShowMessage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
+        public string IsuCalcIpIf {
+            get {
+                return ((string)(this["IsuCalcIpIf"]));
+            }
+            set {
+                this["IsuCalcIpIf"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4000")]
+        public uint IsuCalcIpPort {
+            get {
+                return ((uint)(this["IsuCalcIpPort"]));
+            }
+            set {
+                this["IsuCalcIpPort"] = value;
+            }
+        }
     }
 }
