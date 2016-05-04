@@ -45,10 +45,22 @@ namespace DanskateAnnouncer
             // If the user clicked "Save"
             if (this.DialogResult == DialogResult.OK)
             {
+                bool IsuCalcReInit = false;
                 DanskateAnnouncer.Properties.Settings.Default.ShowMessage = showMessageCheckBox.Checked;
+                if (DanskateAnnouncer.Properties.Settings.Default.IsuCalcIpIf != IpIfIsuCalcCB.SelectedItem.ToString() ||
+                    DanskateAnnouncer.Properties.Settings.Default.IsuCalcIpPort != (uint)IpPortIsuCalcNUD.Value)
+                {
+                    IsuCalcReInit = true;
+                }
+
                 DanskateAnnouncer.Properties.Settings.Default.IsuCalcIpIf = IpIfIsuCalcCB.SelectedItem.ToString();
                 DanskateAnnouncer.Properties.Settings.Default.IsuCalcIpPort = (uint)IpPortIsuCalcNUD.Value;
                 DanskateAnnouncer.Properties.Settings.Default.Save();
+
+                if (IsuCalcReInit)
+                {
+                    // ResetIsuCalcLink();
+                }
             }
         }
     }
